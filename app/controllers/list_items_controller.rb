@@ -27,6 +27,7 @@ class ListItemsController < ApplicationController
       if @list_item.save
         format.html { redirect_to @list_item, notice: "List item was successfully created." }
         format.json { render :show, status: :created, location: @list_item }
+        format.turbo_stream
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @list_item.errors, status: :unprocessable_entity }

@@ -1,0 +1,2 @@
+<%= turbo_stream.prepend "list_items", partial: "list_items/list_item", locals: { list_item: @list_item} %>
+<%= turbo_stream.update ListItem.new, "" %>

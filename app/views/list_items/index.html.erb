@@ -2,12 +2,27 @@
 
 <% content_for :title, "List items" %>
 
-<h1>List items</h1>
 
-<div id="list_items">
-  <% @list_items.each do |list_item| %>
-    <%= render list_item %>
-  <% end %>
+
+  <div class="header">
+<h1>List items</h1>
+<%= link_to "New list item", 
+    new_list_item_path,
+    data: {turbo_frame: dom_id(ListItem.new)}
+    %>
 </div>
 
-<%= link_to "New list item", new_list_item_path %>
+<%= turbo_frame_tag ListItem.new  %>
+
+<%= turbo_frame_tag "list_items" do %>
+<div id="list_items">
+<% @list_items.reverse.each do |list_item| %>
+   <%= turbo_frame_tag list_item do %> 
+    <%= render list_item %>
+  <% end %>
+  <% end %>
+<% end %>
+</div>
+
+
+

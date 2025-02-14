@@ -30,8 +30,9 @@
     <%= form.label :store, style: "display: block" %>
     <%= form.text_field :store %>
   </div>
-
+  <%= turbo_frame_tag "turbo_frame" do %>
   <div>
     <%= form.submit %>
   </div>
+  <%end %>
 <% end %>
