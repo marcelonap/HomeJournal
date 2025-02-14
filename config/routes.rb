@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :grocery_list_items
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -11,4 +12,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  root "grocery_list_items#index"
+
+  resources :grocery_list_items do
+    member do
+      patch :toggle_status
+    end
+  end
+
 end

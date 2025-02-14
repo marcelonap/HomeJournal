@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Grocery list items" %>
+
+<h1>Things to buy</h1>
+
+<div id="grocery_list_items">
+  <% @grocery_list_items.each do |grocery_list_item| %>
+    <%= turbo_stream_from "grocery_list_item_#{grocery_list_item.id}" %>
+    <%= render grocery_list_item %>
+  <% end %>
+</div>
+
+<%= link_to "New grocery list item", new_grocery_list_item_path %>
