@@ -6,6 +6,12 @@ class ItemsController < ApplicationController
     redirect_to @errand
   end
 
+  def destroy
+    item = @errand.items.find(params[:id])
+    item.destroy!
+    redirect_to @errand
+  end
+
 
   private
     def set_errand

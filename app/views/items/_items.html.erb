@@ -1,7 +1,12 @@
 <h2> Items </h2>
 
 <div id="items">
-    <%= render errand.items %>
+    <% @errand.items.each do |item| %>
+    <div id="<%= dom_id(item)%>">
+        <%= render item %>
+        <%= button_to "Destroy this item",  errand_item_path(@errand, item), method: :delete %>
+</div>
+     <% end %>
 </div>
 
 <%= render "items/new", errand: errand %>
