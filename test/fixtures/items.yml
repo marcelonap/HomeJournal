@@ -1,13 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  errand: one
   name: MyString
-  qty: 1
-  status: false
-  store: MyString
+  description: MyText
+  bought: false
+  quantity: 1
 
 two:
+  errand: two
   name: MyString
-  qty: 1
-  status: false
-  store: MyString
+  description: MyText
+  bought: false
+  quantity: 1
